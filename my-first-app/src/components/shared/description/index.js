@@ -1,6 +1,11 @@
 import React from "react";
 
 const DescriptionWithLink = (props) => {
+
+    if(!props.desc) {
+        return null;
+    }
+
     if(props.link) {
         return (
             <div>
