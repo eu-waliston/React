@@ -1,9 +1,19 @@
 {
   "satellites": [
-    {"name": "Phobos"},
-    {"name": "Deimos"},
-    {"name": "Umbriel"},
-    {"name": "Titania"},
-    {"name": "Oberon"}
+    {
+      "name": "Phobos"
+    },
+    {
+      "name": "Deimos"
+    },
+    {
+      "name": "Umbriel"
+    },
+    {
+      "name": "Titania"
+    },
+    {
+      "name": "Oberon"
+    }
   ]
 }

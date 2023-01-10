@@ -1,9 +1,19 @@
 {
   "satellites": [
-    {"name": "Miranda"},
-    {"name": "Ariel"},
-    {"name": "Umbriel"},
-    {"name": "Titania"},
-    {"name": "Oberon"}
+    {
+      "name": "Miranda"
+    },
+    {
+      "name": "Ariel"
+    },
+    {
+      "name": "Umbriel"
+    },
+    {
+      "name": "Titania"
+    },
+    {
+      "name": "Oberon"
+    }
   ]
 }
