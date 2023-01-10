@@ -3,7 +3,7 @@ import GrayImg from "../../shared/gray_img";
 
 const Planet = (props) => {
   return (
-    <div>
+    <div onClick={() => props.clickOnPlanet(props.name)}>
       <h4>{props.name}</h4>
       <p>{props.desc}</p>
       <a href={props.link} target="_blank">{props.desc_link_name}</a>

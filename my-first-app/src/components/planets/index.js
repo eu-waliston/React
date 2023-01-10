@@ -1,15 +1,15 @@
 import React, { Fragment } from "react";
 import Planet from "./planet";
 
-const  showMessage = () => {
-  alert(`Meu primeiro evento`);
+const clickOnPlanet = (name) => {
+  alert(`Ùm click no planeta ${name}`);
 }
 
 const Planets = () => {
   return (
     <Fragment>
       <h3>Planet list</h3>
-      <button onClick={showMessage}>Click Here</button>
+      <button>Click Here</button>
       <hr />
       <Planet
         name="Mercurio"
@@ -18,6 +18,7 @@ const Planets = () => {
 
         img_url="http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcTFFRKg1XEC7kNu58XVZi9vPh6F9ii0FhevCdEAUKyMEtSdx4HLLLNBMacXXX0Y0gLv"
         alt="Mercurio"
+        clickOnPlanet={clickOnPlanet}
       />
 
       <Planet 
@@ -29,6 +30,7 @@ const Planets = () => {
         desc_link_name="saiba mais"
 
         img_url="https://upload.wikimedia.org/wikipedia/commons/e/ef/Pluto_in_True_Color_-_High-Res.jpg"
+        clickOnPlanet={clickOnPlanet}
       />
       
     </Fragment>
