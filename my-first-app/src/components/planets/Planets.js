@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Planet from "./planet";
+import Planet from "./planet/Planet";
 
 const clickOnPlanet = (name) => {
   alert(`Ùm click no planeta ${name}`);

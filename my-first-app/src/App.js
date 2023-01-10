@@ -1,5 +1,6 @@
 import react from 'react';
-import Planets from './components/planets';
+import Planets from './components/planets/Planets';
+
 function App() {
   return (
     <div>

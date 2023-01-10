@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
-import GrayImg from "../../shared/gray_img";
+import GrayImg from "../../shared/gray_img/Gray_img";
 
 const Planet = (props) => {
   const names = ["A", "B", "C", "D"];
-
 
   let title;
   if (props.title_with_underline) {
@@ -27,7 +26,7 @@ const Planet = (props) => {
       <GrayImg img_url={props.img_url} gray={props.gray} />
 
       <h4>Satélites:</h4>
-        {names.map((n) => <li>Satélite{n}</li>)}
+      {names.map((n) => <li>Satélite{n}</li>)}
       <hr />
     </div>
   );
