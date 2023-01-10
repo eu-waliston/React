@@ -1,9 +1,12 @@
 import React, { Fragment } from "react";
 import Planet from "./planet/Planet";
 
-const clickOnPlanet = (name) => {
-  alert(`Ùm click no planeta ${name}`);
-};
+async function getPlanets() {
+  let response = fetch('http://localhost:3000/api/planets.json');
+
+  let data = await (await response).json()
+  return data;
+}
 
 class Planets extends React.Component {
   constructor(props) {
@@ -11,26 +14,19 @@ class Planets extends React.Component {
 
     this.state = {
       planets: [
-        {
-          name: "Mercurio",
-          desc: "Mercurio, formalmente designado 134340 Plutão (símbolos: ⯓ e ♇) é um planeta anão do Sistema Solar e o nono maior e décimo mais massivo objeto observado diretamente orbitando o Sol. Originalmente classificado como um planeta, Plutão é atualmente o maior membro conhecido do cinturão de Kuiper,[11] uma região de corpos além da órbita de Netuno. ",
-          link: "https://pt.wikipedia.org/wiki/Plut%C3%A3o",
-          desc_link_name: "saiba mais",
-          img_url:
-            "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcTFFRKg1XEC7kNu58XVZi9vPh6F9ii0FhevCdEAUKyMEtSdx4HLLLNBMacXXX0Y0gLv",
-          alt: "Mercurio",
-        },
-        {
-          name: "Plutão",
-          desc: "Plutão, formalmente designado 134340 Plutão (símbolos: ⯓ e ♇) é um planeta anão do Sistema Solar e o nono maior e décimo mais massivo objeto observado diretamente orbitando o Sol. Originalmente classificado como um planeta, Plutão é atualmente o maior membro conhecido do cinturão de Kuiper,[11] uma região de corpos além da órbita de Netuno. ",
-          link: "https://pt.wikipedia.org/wiki/Plut%C3%A3o",
-          desc_link_name: "saiba mais",
-          img_url:
-            "https://upload.wikimedia.org/wikipedia/commons/e/ef/Pluto_in_True_Color_-_High-Res.jpg",
-          alt: "Mercurio",
-        },
+
       ],
     };
+  }
+
+
+
+  componentDidMount() {
+    getPlanets().then(data => {
+      this.setState(state => ({
+        planets: data['planets']
+      }))
+    })
   }
 
   removeLast = () => {
