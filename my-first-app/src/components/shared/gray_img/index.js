@@ -4,7 +4,7 @@ import "./index.css";
 const GrayImg = (props) => {
   return (
     <img
-      className="mercurio"
+      className={props.gray ? 'mercurio' : 'color__img'}
       src={props.img_url}
     />
   );
