@@ -15,7 +15,7 @@ const Planet = (props) => {
     getSatellites(props.id).then((data) => {
       setSatelites(data["satellites"]);
     });
-  }, []);
+  }, [props.id]);
 
   return (
     <div>
