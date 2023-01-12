@@ -3,9 +3,7 @@ import Planet from "./planet/Planet";
 
 async function getPlanets() {
   let response = await fetch("http://localhost:3000/api/planets.json");
-
   let data = await response.json();
-  console.log(":)");
   return data;
 }
 
