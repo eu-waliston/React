@@ -1,13 +1,17 @@
 import React, {Fragment, useState} from "react";
 
+const initialState = {
+    name: '',
+    desc: '',
+    img_url: '',
+    link: '',
+    desc_link_name: ''  
+}
+
 const Form = (props) =>{
-    const [fields, setFields] = useState({
-        name: '',
-        desc: '',
-        img_url: '',
-        link: '',
-        desc_link_name: ''
-    });
+     
+
+    const [fields, setFields] = useState(initialState);
 
     const handleFieldsChange = (e) => setFields({
         ...fields,
@@ -17,6 +21,7 @@ const Form = (props) =>{
     const handleSubmit = (event) => {
         props.addPlanet(fields)
         event.preventDefault();
+        setFields(initialState)
     }
 
 
