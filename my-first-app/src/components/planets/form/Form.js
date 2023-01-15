@@ -3,6 +3,10 @@ import React, {Fragment, useState} from "react";
 const Form = (props) =>{
     const [fields, setFields] = useState({
         name: '',
+        desc: '',
+        img_url: '',
+        link: '',
+        desc_link_name: ''
     });
 
     const handleFieldsChange = (e) => setFields({
