@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GrayImg from "../../shared/gray_img/Gray_img";
+import NewSatellites from "../forms/NewSatellites";
 
 async function getSatellites(id) {
   let response = await fetch(`http://localhost:3000/api/${id}.json`);
@@ -16,6 +17,10 @@ const Planet = (props) => {
       setSatelites(data["satellites"]);
     });
   }, [props.id]);
+
+  const addSatellite = (new_satellite) => {
+    setSatelites([...satellites, new_satellite])
+  }
 
   return (
     <div>
@@ -34,6 +39,7 @@ const Planet = (props) => {
         ))}
       </ul>
       <hr />
+      <NewSatellites addSatellite={addSatellite}/>
     </div>
   );
 };

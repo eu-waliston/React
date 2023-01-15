@@ -8,7 +8,7 @@ const initialState = {
     desc_link_name: ''  
 }
 
-const Form = (props) =>{
+const NewPlanet = (props) =>{
      
 
     const [fields, setFields] = useState(initialState);
@@ -23,7 +23,6 @@ const Form = (props) =>{
         event.preventDefault();
         setFields(initialState)
     }
-
 
     return (
         <Fragment>
@@ -59,4 +58,4 @@ const Form = (props) =>{
     )
 }
 
-export default Form;
+export default NewPlanet;

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Planet from "./planet/Planet";
-import Form from "./form/Form";
+import NewPlanet from "./forms/NewPlanet";
 
 
 async function getPlanets() {
@@ -40,7 +40,7 @@ const Planets = () => {
       <button onClick={removeLast}>Remove Last</button>
       <button onClick={duplicateLast}>ADD + 1</button>
       <hr />
-      <Form addPlanet={addPlanet}/>
+      <NewPlanet addPlanet={addPlanet}/>
       <hr />
 
       {planets.map((planet, index) => (
