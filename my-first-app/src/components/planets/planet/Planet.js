@@ -25,7 +25,6 @@ const Planet = (props) => {
   return (
     <div>
       <h4>{props.name}</h4>
-      <h4>Satélites</h4>
       <p>{props.desc}</p>
       <a href={props.link} target="_blank" rel="noreferrer">
         {props.desc_link_name}
