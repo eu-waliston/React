@@ -1,10 +1,11 @@
-import react from 'react';
-import Planets from './components/planets/Planets';
+import React from 'react';
+//import Planets from './components/planets/Planets';
+import Rotas from './routes';
 
 function App() {
   return (
     <div>
-      <Planets />
+      <Rotas />
     </div>
   );
 }
