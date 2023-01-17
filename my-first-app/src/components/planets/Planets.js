@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Planet from "./planet/Planet";
-import NewPlanet from "./forms/NewPlanet";
-
+import NewPlanet from "../../components/planet/forms/NewPlanet";
 
 async function getPlanets() {
   let response = await fetch("http://localhost:3000/api/planets.json");
