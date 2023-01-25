@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Search = (props) => {
-  
-
   const handleChange = (event) => {
     props.onSearch(event);
   };
-    
+
   return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={handleChange} />
-      <p>
-        Searching for <strong>{props.onSearch}</strong>
-      </p>
+      <input
+        id="search"
+        type="text"
+        value={props.search}
+        onChange={props.onSearch}
+      />
     </div>
   );
 };
