@@ -23,17 +23,23 @@ const App = () => {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = React.useState(
-    localStorage.getItem('search') || 'React'
-  );
+  //custom hook
+  const useSemiPersistentState = (key, initialState) => {
+    const [value, setValue] = React.useState(
+      localStorage.getItem(key) ||  initialState
+    );
 
-  React.useEffect(() => {
-    localStorage.setItem('search', searchTerm);
-  }, [searchTerm]);
+    React.useEffect(() => {
+      localStorage.setItem(key, value);
+    });
+    return [value, setValue];
+  };
+
+  const [searchTerm, setSearchTerm] = useSemiPersistentState("search", "React");
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
-    localStorage.setItem('search', event.target.value)
+    localStorage.setItem("search", event.target.value);
   };
 
   const searchedStories = stories.filter((story) => {
@@ -43,7 +49,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>My Hackers Stories</h1>
-      <Search  search={searchTerm} onSearch={handleSearch} />
+      <Search search={searchTerm} onSearch={handleSearch} />
       <hr />
       <List list={searchedStories} />
     </div>
