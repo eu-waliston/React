@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import "./App.css";
 import List from "./components/Lisst";
-import Search from "./components/Search";
 
 const App = () => {
   const stories = [
@@ -50,28 +49,48 @@ const App = () => {
     <div className="App">
 
       <h1>My Hackers Stories</h1>
+
       <InputWithLabel
         id="search"
         label="search"
         value={searchTerm}
+        isFocused
         onInputChange={handleSearch}
-      />
-      <Search search={searchTerm} onSearch={handleSearch} />
+      >
+        <strong>Search:</strong>
+      </InputWithLabel>
+
+      {/* <Search search={searchTerm} onSearch={handleSearch} />
+       */}
       <hr />
       <List list={searchedStories} />
     </div>
   );
 };
-const InputWithLabel = ({ id, label, value,type="text", onInputChange }) => {
-  <Fragment>
-    <label htmlFor={"id"}>{label}</label>
-    &nbsp;
-    <input
-      id={id}
-      type={type}
-      value={value}
-      onChange={onInputChange}
-    />
-  </Fragment>
+
+const InputWithLabel = ({ id, value, type = "text", onInputChange, isFocused, children }) => {
+  const inputRef = React.useRef();
+
+  React.useEffect(() => {
+    if (isFocused && inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [isFocused]);
+
+  return (
+    < Fragment >
+      <label htmlFor={id}>{children}</label>
+      &nbsp;
+      {/* B */}
+      <input
+        ref={inputRef}
+        id={id}
+        type={type}
+        value={value}
+        autoFocus={isFocused}
+        onChange={onInputChange}
+      />
+    </Fragment >
+  )
 }
 export default App;
