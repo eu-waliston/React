@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./App.css";
 import List from "./components/Lisst";
 import Search from "./components/Search";
@@ -26,7 +26,7 @@ const App = () => {
   //custom hook
   const useSemiPersistentState = (key, initialState) => {
     const [value, setValue] = React.useState(
-      localStorage.getItem(key) ||  initialState
+      localStorage.getItem(key) || initialState
     );
 
     React.useEffect(() => {
@@ -48,11 +48,30 @@ const App = () => {
 
   return (
     <div className="App">
+
       <h1>My Hackers Stories</h1>
+      <InputWithLabel
+        id="search"
+        label="search"
+        value={searchTerm}
+        onInputChange={handleSearch}
+      />
       <Search search={searchTerm} onSearch={handleSearch} />
       <hr />
       <List list={searchedStories} />
     </div>
   );
 };
+const InputWithLabel = ({ id, label, value,type="text", onInputChange }) => {
+  <Fragment>
+    <label htmlFor={"id"}>{label}</label>
+    &nbsp;
+    <input
+      id={id}
+      type={type}
+      value={value}
+      onChange={onInputChange}
+    />
+  </Fragment>
+}
 export default App;
