@@ -3,6 +3,7 @@ import "./App.css";
 import List from "./components/Lisst";
 
 const App = () => {
+
   const inicialStories = [
     {
       title: "React",
@@ -22,6 +23,21 @@ const App = () => {
     },
   ];
 
+  const [stories, setStories] = React.useState([])
+
+  
+  const getAsyncStories = new Promise(resolve => {
+    setTimeout(() => {
+      resolve({data: { stories: inicialStories}})
+    }, 2000);
+  })
+
+  React.useEffect(() => {
+    getAsyncStories.then(result => {
+      setStories(result.data.stories)
+    })
+  })
+
   //custom hook
   const useSemiPersistentState = (key, initialState) => {
     const [value, setValue] = React.useState(
@@ -35,8 +51,6 @@ const App = () => {
   };
 
   const [searchTerm, setSearchTerm] = useSemiPersistentState("search", "React");
-
-  const [stories, setStories] = React.useState(inicialStories)
 
   const handleRemoveStory = item => {
     const newStories = stories.filter(story => item.objectID !== stories.objectID);
@@ -69,7 +83,7 @@ const App = () => {
 
 
       <hr />
-      <List list={searchedStories} onRemoveItem={handleRemoveStory}/>
+      <List list={searchedStories} onRemoveItem={handleRemoveStory} />
     </div>
   );
 };
