@@ -25,6 +25,7 @@ const App = () => {
 
   const [stories, setStories] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isError, setError] = React.useState(false);
 
 
 
@@ -40,9 +41,9 @@ const App = () => {
 
     getAsyncStories.then(result => {
       setStories(result.data.stories)
-      setIsLoading(true);
-    })
-  })
+      setIsLoading(false);
+    }).catch(() => setError(true))
+  }, [])
 
   //custom hook
   const useSemiPersistentState = (key, initialState) => {
@@ -91,6 +92,9 @@ const App = () => {
 
 
       <hr />
+      {
+        isError && <p>Something went wrong...</p>
+      }
       {
         isLoading ?
           (<p>Loading...</p>)
