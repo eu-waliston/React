@@ -75,6 +75,19 @@ const App = () => {
     return story.title.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
+  const storiesReducer = (state, action) => {
+    if(action.type === 'SET_STORIES') {
+      return action.payload;
+    } else {
+      throw new Error();
+    }
+  }
+
+  const [stories, dispatchStories] = React.useReducer(
+      storiesReducer,
+      []
+  );
+
   return (
     <div className="App">
 
