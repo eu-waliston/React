@@ -24,17 +24,23 @@ const App = () => {
   ];
 
   const [stories, setStories] = React.useState([])
+  const [isLoading, setIsLoading] = React.useState(false);
+
 
 
   const getAsyncStories = new Promise(resolve => {
     setTimeout(() => {
-      resolve({data: { stories: inicialStories}})
+      resolve({ data: { stories: inicialStories } })
     }, 2000);
   })
 
   React.useEffect(() => {
+
+    setIsLoading(true);
+
     getAsyncStories.then(result => {
       setStories(result.data.stories)
+      setIsLoading(true);
     })
   })
 
@@ -85,7 +91,14 @@ const App = () => {
 
 
       <hr />
-      <List list={searchedStories} onRemoveItem={handleRemoveStory} />
+      {
+        isLoading ?
+          (<p>Loading...</p>)
+          :
+          (
+            <List list={searchedStories} onRemoveItem={handleRemoveStory} />
+          )
+      }
     </div>
   );
 };
