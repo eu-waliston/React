@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { SportStoreDataStore } from "./data/DataStore";
+import { SportsStoreDataStore } from "./data/DataStore";
 
 import { Provider } from 'react-redux';
 
@@ -10,7 +10,7 @@ import { ShopConnector } from "./shop/ShopConnector";
 
 const App = () => {
   return (
-    <Provider store={SportStoreDataStore}>
+    <Provider store={SportsStoreDataStore}>
       <Router>
         <Switch>
           <Route path={"/shop"} component={ShopConnector} />

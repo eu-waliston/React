@@ -9,9 +9,10 @@ export class Shop extends Component {
     render() {
         return <div className="container-fluid">
             <div className="row">
-                <div className="col bg-dark text-white"><div className="navbar-brand">SPORTS STORE</div>
+                <div className="col bg-dark text-white">
+                    <div className="navbar-brand">SPORTS STORE</div>
+                    <CartSummary {...this.props} />
                 </div>
-                <CartSummary {...this.props} />
             </div>
             <div className="row">
                 <div className="col-3 p-2">

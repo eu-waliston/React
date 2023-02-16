@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+
+import { addToCart } from "../data/CartActionCreators";
+
 export class ProductList extends Component {
     render() {
         if (this.props.products == null || this.props.products.length === 0) {
@@ -12,10 +15,11 @@ export class ProductList extends Component {
                         ${p.price.toFixed(2)}
                     </span>
                 </h4>
+
                 <div className="card-text bg-white p-1">
                     {p.description}
                     <button className="btn btn-success btn-sm float-right"
-                        onClick={() => this.props.addToCart(p)} >
+                        onClick={() => addToCart(p)} >
                         Add To Cart
                     </button>
                 </div>
